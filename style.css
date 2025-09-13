@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: white;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+header {
+    background-color: #2d5016;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #4CAF50;
+    color: black;
+}
+
+/* Banner */
+.banner {
+    text-align: center;
+    margin: 20px;
+}
+
+.banner img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #4CAF50;
+}
+
+/* === SECCIÓN DEL SLIDER CORREGIDA === */
+
+/* 1. Contenedor principal del slider (la "ventana") */
+.slider {
+    max-width: 500px;  /* Ancho máximo para que no sea tan grande */
+    margin: 20px auto; /* Centra el slider en la página */
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    overflow: hidden;  /* ¡IMPORTANTE! Oculta los slides que se salen del contenedor */
+    position: relative;
+    background-color: #2a2a2a;
+}
+
+/* 2. Contenedor de todos los slides (la "tira" de imágenes) */
+.slides {
+    display: flex;
+    width: 300%; /* Ancho total (100% por 3 slides) */
+    transition: margin-left 0.5s ease-in-out; /* Animación suave al deslizar */
+}
+
+/* 3. Cada slide individual */
+.item {
+    width: 33.333%; /* Cada item ocupa un tercio del contenedor .slides */
+    padding: 40px 20px;
+    text-align: center;
+    flex-shrink: 0; /* Evita que los items se encojan */
+}
+
+.item img {
+    width: 180px;  /* Tamaño ajustado para las imágenes */
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #4CAF50;
+}
+
+.item h3 {
+    color: #4CAF50;
+    margin: 15px 0 10px;
+}
+
+.item p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* 4. La Lógica para mover los slides */
+#slide1:checked ~ .slides {
+    margin-left: 0;
+}
+#slide2:checked ~ .slides {
+    margin-left: -100%;
+}
+#slide3:checked ~ .slides {
+    margin-left: -200%;
+}
+
+
+/* 5. Navegación y sus indicadores */
+.navigation {
+    position: absolute; /* Para que se ponga sobre el slider */
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.bar {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #666;
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.bar:hover {
+    background-color: #888;
+}
+
+/* Colorea la barra del slide que está activo */
+#slide1:checked ~ .navigation .bar:nth-child(1),
+#slide2:checked ~ .navigation .bar:nth-child(2),
+#slide3:checked ~ .navigation .bar:nth-child(3) {
+    background-color: #4CAF50;
+}
+
+
+input[type="radio"] {
+    display: none;
+}
+/* === FIN DE LA SECCIÓN CORREGIDA === */
+
+
+.acciones {
+    text-align: center;
+    margin: 40px 0;
+    padding: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.contacto {
+    background-color: #2a2a2a;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 2px solid #4CAF50;
+}
+
+.contacto h2 {
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.contacto form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+input, textarea {
+    width: 100%; /* Corregido para que no se salga del formulario */
+    padding: 12px;
+    margin: 8px 0;
+    background-color: #333; /* Color corregido */
+    border: 2px solid #666;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #ccc;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
